@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # README #
 
 This README would normally document whatever steps are necessary to get your application up and running.
@@ -9,6 +8,6 @@ This README would normally document whatever steps are necessary to get your app
 
 ### How do I get set up? ###
 
-* run webpack -w# reactjs
+* run webpack -w
 
 
