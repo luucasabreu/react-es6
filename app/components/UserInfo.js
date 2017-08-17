@@ -1,44 +1,31 @@
 var React = require('react');
-var GitHubUser = require('../services/GitHubUser');
 
-var SearchUser = React.createClass({
-	handleSubmit: function(e) {
-		e.preventDefault();
+var UserRepos = require('./UserRepos');
 
-		GitHubUser.getByUsername(this.refs.username.value)
-		.then(function(response) {
-			this.props.updateUser(response);
-		}.bind(this));
-
-		GitHubUser.getReposByUsername(this.refs.username.value)
-		.then(function(response) {
-			this.props.updateRepos(response);
-		}.bind(this));
-	},
-	render: function() {
-		return (
-			<div className="jumbotron">
-				<h1>GitHub Info</h1>
-				<div className="row">
-					<form onSubmit={this.handleSubmit}>
-						<div className="form-group">
-							<label>Usename</label>
-							<input
-								type="text"
-								ref="username"
-								className="form-control"
-								placeholder="Ex: luucasabreu"
-								/>
-						</div>
-						<button
-							type="submit"
-							className="btn btn-primary">Buscar
-						</button>
-					</form>
+function UserInfo(props) {
+	var userInfo = props.user
+	? (
+			<div className="row">
+				<div className="col-lg-4">
+					<img className="img-circle" src={props.user.avatar_url} alt="avatar" width="140" height="" />
+					<h2>{props.user.login}</h2>
+					<p>{props.user.name}</p>
+					<p>Followers: {props.user.followers} / Following: {props.user.following}</p>
+					<p><a className="btn btn-default" href={props.user.html_url} role="button">View Details</a></p>
+				</div>
+				<div className="col-lg-8">
+					<UserRepos repos={props.repos}/>
 				</div>
 			</div>
-		)
-	}
-});
+		) 
+	: null;
 
-module.exports = SearchUser;
+	return userInfo;
+}
+
+UserInfo.prototype = {
+	user: React.PropTypes.object,
+	repos: React.PropTypes.array,
+}
+
+module.exports = UserInfo;

@@ -1,11 +1,13 @@
 var axios = require('axios');
 
-export default {
-	getByUsername(username) {
+var GitHubUser = {
+	getByUsername: function (username) {
 		return axios.get('https://api.github.com/users/' + username);
 	},
 
-	getReposByUsername(username) {
-		return axios.get(`https://api.github.com/users/${username}/repos`);
+	getReposByUsername: function (username) {
+		return axios.get('https://api.github.com/users/' + username + '/repos');
 	}
 };
+
+module.exports = GitHubUser;
