@@ -1,11 +1,14 @@
+<<<<<<< HEAD
 # README #
 
 This README would normally document whatever steps are necessary to get your application up and running.
 
 ### What is this repository for? ###
 
-* Study ReactJS
+* Example react with es6
 
 ### How do I get set up? ###
 
 * run webpack -w# reactjs
+
+
