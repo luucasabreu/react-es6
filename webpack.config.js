@@ -3,6 +3,11 @@ module.exports = {
 	output: {
 		filename: "public/bundle.js"
 	},
+	resolve: {
+		alias: {
+			'@': `${__dirname}/app`,
+		},
+	},
 	module: {
 		loaders: [
 			{

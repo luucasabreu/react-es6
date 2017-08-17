@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import GitHubUser from '../services/GitHubUser';
+import GitHubUser from '@/services/GitHubUser';
 
 class SearchUser extends Component{
 	propTypes = {
